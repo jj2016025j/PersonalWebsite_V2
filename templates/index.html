@@ -18,8 +18,13 @@
     rel="stylesheet">
   <!-- 引入手刻 -->
   <link rel="stylesheet" href="../static/css/global.css">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8099482531873423"
-  crossorigin="anonymous"></script></head>
+
+
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
 <style>
   body {
     padding: 0;
@@ -35,17 +40,16 @@
 
   <!-- 內容區塊 -->
   <main class="row justify-content-evenly g-0" style="overflow: hidden;">
-    <section class="d-flex justify-content-center text-white image-container pt-5"
+    <section id="home2" class="d-flex justify-content-center text-white image-container pt-5"
       style="height: 100vh; background-image: url('../static/img/Fp0cxYQagAUt7tq.jfif'); 
       background-repeat: no-repeat; background-size: cover; background-position: center; position: relative; background-attachment: fixed;">
-      <!--  -->
 
       <div class="d-flex justify-content-center image-overlay" style="position: absolute; top: 0; left: 0; 
         width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);">
 
         <div class="d-flex flex-column justify-content-center ms-5 me-5 ps-5 pe-5">
           <br>
-          <h1 class="note-sans-black fs-1 mt-5 pt-5" id="typing">UI 設計師</h1>
+          <h1 class="fs-1 mt-5 pt-5" id="typing">UI 設計師</h1>
           <p class="mt-3 fs-6">"歡迎來到創意的交匯點！
             我們是一群熱衷於技術和藝術的專業人士，涵蓋從前端工程師到3D建模師的各個範疇。
             無論是創造引人入勝的網站體驗、開發先進的後端解決方案、
@@ -56,68 +60,62 @@
       </div>
     </section>
 
-    <!-- slogan -->
-    <section class="d-flex flex-wrap justify-content-center align-content-center bg-black" style="height: 20vh">
-      <h5 class="text-white">"從構想到現實 - 我們用技術實現夢想。"</h5>
-    </section>
+    <section class="container col-12 row justify-content-evenly align-content-evenly pt-5 pb-5 gap-5" id="home">
 
-    <!-- AI -->
-    <section class="ai"></section>
-
-    <section class="container col-12 row justify-content-evenly align-content-evenly pt-5 pb-5 bg-secondary">
-      <!-- style=" height: 100vh; background-image: url('img/photo-1702868670879-07c99e07b88f.avif'); 
-        background-repeat: no-repeat; background-size: cover; background-position: center;"> -->
-      <div class="d-flex justify-content-center image-overlay">
-        <!-- style="position: absolute; top: 0; left: 0; 
-          width: 100%; background: rgba(0, 0, 0, 0.5);"> -->
-        <div class="col-md-4 d-flex flex-column row-gap gap-4">
-          <img src="https://picsum.photos/2000/1500?random=1" alt="" class="img-fluid">
-          <img src="https://picsum.photos/1500/2500?random=1" alt="" class="img-fluid">
-          <img src="https://picsum.photos/2500/2000?random=1" alt="" class="img-fluid">
-        </div>
-        <div class="col-md-4 d-flex flex-column row-gap gap-4">
-          <img src="https://picsum.photos/1500/2500?random=2" alt="" class="img-fluid">
-          <img src="https://picsum.photos/2500/2000?random=2" alt="" class="img-fluid">
-          <img src="https://picsum.photos/2000/1500?random=2" alt="" class="img-fluid">
-        </div>
-        <div class="col-md-4 d-flex flex-column row-gap gap-4">
-          <img src="https://picsum.photos/2000/1500?random=3" alt="" class="img-fluid">
-          <img src="https://picsum.photos/2500/2000?random=3" alt="" class="img-fluid">
-          <img src="https://picsum.photos/1500/2500?random=3" alt="" class="img-fluid">
-        </div>
-      </div>
     </section>
   </main>
 
   <footer class="footer mt-5">
   </footer>
-  <script>
-    // 打字特效
-    const texts = ['前端工程師', '後端工程師', '全端工程師', '遊戲開發者', '3D建模師', '人像攝影師'];
-    let count = 0;
-    let index = 0;
-    let currentText = '';
-    let letter = '';
+  <script type="text/babel">
+    function Home() {
+      return (
+        <React.Fragment>
 
-    (function type() {
-      if (count === texts.length) {
-        count = 0;
-      }
-      currentText = texts[count];
-      letter = currentText.slice(0, ++index);
+          <DisplayArea />
+        </React.Fragment>
+      );
+    }
+    function MainDisplay() {
+      return (
+        <React.Fragment>
 
-      document.getElementById('typing').textContent = letter;
-      if (letter.length === currentText.length) {
-        count++;
-        index = 0;
-        setTimeout(type, 3000);
-      } else {
-        setTimeout(type, 150);
-      }
-    })();
+          <div className="d-flex justify-content-center image-overlay" style="position: absolute; top: 0; left: 0; 
+        width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5);">
 
+            <div className="d-flex flex-column justify-content-center ms-5 me-5 ps-5 pe-5">
+              <br />
+              <h1 className="fs-1 mt-5 pt-5" id="typing">UI 設計師</h1>
+              <p className="mt-3 fs-6">"歡迎來到創意的交匯點！
+                我們是一群熱衷於技術和藝術的專業人士，涵蓋從前端工程師到3D建模師的各個範疇。
+                無論是創造引人入勝的網站體驗、開發先進的後端解決方案、
+                或是打造下一代遊戲和實現視覺震撼，我們都在這裡，準備將您的夢想轉化為現實。"</p>
+              <p className="mt-5"><a href="../about.html" className="button text-dark"
+                style="box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);">了解更多</a></p>
+            </div>
+          </div>
+        </React.Fragment>
+      );
+    }
 
+    function DisplayArea() {
+      return (
+        <React.Fragment>
+          <h1 className="col-12 justify-content-center">作品展示</h1>
+          <div className="d-flex justify-content-center image-overlay">
+            <img src="https://picsum.photos/2000/1500?random=1" alt="" className="col-md-4 img-fluid" />
+            <img src="https://picsum.photos/2000/1500?random=2" alt="" className="col-md-4 img-fluid" />
+            <img src="https://picsum.photos/2000/1500?random=3" alt="" className="col-md-4 img-fluid" />
+          </div>
+        </React.Fragment>
+      );
+    }
+
+    ReactDOM.render(<Home />, document.getElementById("home"));
+    ReactDOM.render(<MainDisplay />, document.getElementById("home2"));
   </script>
+
+  <!-- <script src="../static/javaScript/TypingEffects.js"></script> -->
   <script type="module" src="../static/javaScript/main.js"></script>
   <!-- 引入Bootstrap JavaScript（可選） -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
